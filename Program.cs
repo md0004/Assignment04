@@ -1,8 +1,8 @@
-﻿/*
 // Question No. 1
 int[] numbers1 = new int[8] { 15, -9, 0, 45, 87, 98, 23, 56 };
 
 Console.WriteLine();
+
 // Question No. 2
 void printGivenArray()
 {
@@ -14,6 +14,7 @@ void printGivenArray()
 printGivenArray();
 
 Console.WriteLine();
+
 // Question No. 3
 Console.Write("Enter A for Ascending order or D for Descending order: ");
 string? inputQ3 = Console.ReadLine();
@@ -28,25 +29,25 @@ else
     Console.WriteLine("Input is null or empty.");
 }
 
-void SortData(char userEntryQ3 = 'D')
+void SortData(int[] numberArray, char? userEntryQ3 = 'D')
 {
     int temp;
     if (userEntryQ3 == 'A')
     {
-        for (int i = 0; i < numbers1.Length - 1; i++)
+        for (int i = 0; i < numberArray.Length - 1; i++)
         {
-            for (int j = 0; j < numbers1.Length - i - 1; j++)
+            for (int j = 0; j < numberArray.Length - i - 1; j++)
             {
-                if (numbers1[j] > numbers1[j + 1])
+                if (numberArray[j] > numberArray[j + 1])
                 {
-                    temp = numbers1[j];
-                    numbers1[j] = numbers1[j + 1];
-                    numbers1[j + 1] = temp;
+                    temp = numberArray[j];
+                    numberArray[j] = numberArray[j + 1];
+                    numberArray[j + 1] = temp;
                 }
             }
         }
         Console.Write("Ascending order of Array is: ");
-        foreach (int num in numbers1)
+        foreach (int num in numberArray)
         {
             Console.Write($"{num}, ");
         }
@@ -54,20 +55,20 @@ void SortData(char userEntryQ3 = 'D')
     }
     else if (userEntryQ3 == 'D')
     {
-        for (int i = 0; i < numbers1.Length - 1; i++)
+        for (int i = 0; i < numberArray.Length - 1; i++)
         {
-            for (int j = 0; j < numbers1.Length - i - 1; j++)
+            for (int j = 0; j < numberArray.Length - i - 1; j++)
             {
-                if (numbers1[j] < numbers1[j + 1])
+                if (numberArray[j] < numberArray[j + 1])
                 {
-                    temp = numbers1[j];
-                    numbers1[j] = numbers1[j + 1];
-                    numbers1[j + 1] = temp;
+                    temp = numberArray[j];
+                    numberArray[j] = numberArray[j + 1];
+                    numberArray[j + 1] = temp;
                 }
             }
         }
         Console.Write("Descending order of Array is: ");
-        foreach (int num in numbers1)
+        foreach (int num in numberArray)
         {
             Console.Write($"{num}, ");
         }
@@ -78,18 +79,18 @@ void SortData(char userEntryQ3 = 'D')
         Console.WriteLine("Enter either A or D.");
     }
 }
-SortData(userEntryQ3);
+SortData(numbers1, userEntryQ3);
 
 Console.WriteLine();
 // Question No. 4
 Console.Write("Enter the number input for which you want to check the existence: ");
 int userInput4 = Convert.ToInt32(Console.ReadLine());
-bool isItemFound()
+bool isItemFound(int[] numberArray, int entery)
 {
     bool isNumberExist = false;
     for (int i = 0; i < numbers1.Length; i++)
     {
-        if (numbers1[i] == userInput4)
+        if (numbers1[i] == entery)
         {
             isNumberExist = true;
             break;
@@ -97,17 +98,17 @@ bool isItemFound()
     }
     return isNumberExist;
 }
-Console.WriteLine(isItemFound());
-
+Console.WriteLine(isItemFound(numbers1, userInput4));
 Console.WriteLine();
+
 // Question No. 5
-void SearchData()
+void SearchData(int[] numberArray, int entery)
 {
-    if (isItemFound())
+    if (isItemFound(numberArray, entery))
     {
-        for (int i = 0; i < numbers1.Length; i++)
+        for (int i = 0; i < numberArray.Length; i++)
         {
-            if (numbers1[i] == userInput4)
+            if (numberArray[i] == entery)
             {
                 Console.WriteLine($"The index of given number is:  { i }");
                 break;
@@ -115,7 +116,7 @@ void SearchData()
         }
     }
 }
-SearchData();
+SearchData(numbers1, userInput4);
 
 Console.WriteLine();
 // Question No. 6
@@ -191,7 +192,7 @@ void ComputeAverage()
 ComputeAverage();
 Console.WriteLine();
 // Question No. 10
-void CountOccurrences(int userInputQ10)
+void CountOccurrences(int[] numberArray, int userInputQ10)
 {
     Console.Write("Enter Number You Want to check Occurence: ");
     userInputQ10 = Convert.ToInt32(Console.ReadLine());
@@ -206,9 +207,19 @@ void CountOccurrences(int userInputQ10)
     Console.WriteLine("Number Repeat " + count + " time.");
 }
 
-CountOccurrences(10);
+CountOccurrences(numbers1, 10);
 Console.WriteLine();
-*/
+
+
+
+
+
+/* ---------------------------------Built-in METHODS---------------------------------*/
+
+
+
+
+
 List<double> numbers = new List<double> { 15, -9, 0, 45, 87, 98, 23, 56 };
 // Question No. 11
 double median = FindMedian(numbers);
